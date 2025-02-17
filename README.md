@@ -1,52 +1,49 @@
-<<<<<<< Updated upstream
-# Bem-vindo ao PRIME ERP
-
-O **PRIME ERP** é um Sistema de Gestão Empresarial desenvolvido para auxiliar empresas de engenharia elétrica na construção e manutenção de redes elétricas de alta e baixa tensão. Nossa solução abrange tanto um sistema web quanto um aplicativo móvel, proporcionando uma gestão eficiente de recursos humanos, materiais e serviços, além de garantir a segurança dos profissionais envolvidos.
-
-## Recursos Principais
-
-- **Gestão de Obras**: Controle completo de projetos de construção e manutenção.
-- **Almoxarifado**: Gerenciamento de materiais e estoque.
-- **Gestão de Tarefas**: Atribuição e acompanhamento de atividades.
-- **Frota e Transportes**: Administração de veículos e logística.
-- **Segurança (SESMT)**: Módulos dedicados à saúde e segurança do trabalho.
-- **Meio Ambiente**: Gestão de licenças e conformidades ambientais.
-- **Sistema de Gestão Integrada (SGI)**: Controle de qualidade e processos integrados.
-
-## Documentação
-Para uma visão detalhada de cada módulo e instruções de uso, acesse nossa [Wiki](https://github.com/intersettecnologia/wiki-prime-web/wiki). Lá, você encontrará guias abrangentes sobre:
-
-- Acessando o Sistema
-- Almoxarifado
-- Aplicativo Móvel Premium
-- Apresentação Geral
-- Business Intelligence (BIs)
-- Cadastros
-- Construção de Obras
-- Frota e Transportes
-- Gestão de Tarefas
-- Instruções de Trabalho
-- Manutenção Preventiva e Corretiva
-- Meio Ambiente
-- Segurança (SESMT)
-- Sistema de Gestão Integrada (SGI)
-=======
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentação</title>
     <style>
-        .sidebar { width: 250px; float: left; padding: 10px; background: #f4f4f4; }
-        .content { margin-left: 260px; padding: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 15px;
+            background: #f4f4f4;
+            height: 100vh;
+            overflow-y: auto;
+            position: fixed;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #0366d6;
+        }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        {% include sidebar.md %}
+        <h3>Menu</h3>
+        <div id="sidebar-content">Carregando menu...</div>
     </div>
     <div class="content">
-        {{ content }}
+        <h1>Bem-vindo à Documentação</h1>
+        <p>Selecione um tópico no menu para visualizar.</p>
     </div>
+
+    <script>
+        fetch('_Sidebar.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('sidebar-content').innerHTML = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a><br>');
+            })
+            .catch(error => console.log('Erro ao carregar sidebar:', error));
+    </script>
 </body>
 </html>
->>>>>>> Stashed changes
