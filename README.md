@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Bem-vindo ao PRIME ERP
 
 O **PRIME ERP** é um Sistema de Gestão Empresarial desenvolvido para auxiliar empresas de engenharia elétrica na construção e manutenção de redes elétricas de alta e baixa tensão. Nossa solução abrange tanto um sistema web quanto um aplicativo móvel, proporcionando uma gestão eficiente de recursos humanos, materiais e serviços, além de garantir a segurança dos profissionais envolvidos.
@@ -29,3 +30,23 @@ Para uma visão detalhada de cada módulo e instruções de uso, acesse nossa [W
 - Meio Ambiente
 - Segurança (SESMT)
 - Sistema de Gestão Integrada (SGI)
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentação</title>
+    <style>
+        .sidebar { width: 250px; float: left; padding: 10px; background: #f4f4f4; }
+        .content { margin-left: 260px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        {% include sidebar.md %}
+    </div>
+    <div class="content">
+        {{ content }}
+    </div>
+</body>
+</html>
+>>>>>>> Stashed changes
