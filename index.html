@@ -63,7 +63,7 @@
                     return response.text();
                 })
                 .then(text => {
-                    document.getElementById('content-area').innerHTML = text;
+                    document.getElementById('content').innerHTML = text;
                 })
                 .catch(error => console.error('Erro ao carregar conteúdo:', error));
         }
