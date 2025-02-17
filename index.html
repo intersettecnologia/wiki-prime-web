@@ -51,17 +51,26 @@
     </div>
 
     <script>
-        fetch('sidebar.md')
-            .then(response => response.text())
+        fetch('_Sidebar.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Não foi possível carregar o menu.');
+                }
+                return response.text();
+            })
             .then(text => {
                 let formattedText = text
-                    .replace(/^# (.+)/gm, '<h2>$1</h2>')
-                    .replace(/^## (.+)/gm, '<h3>$1</h3>')
+                    .replace(/^#\s+\[(.*?)\]\((.*?)\)/gm, '<h2><a href="$2" target="_blank">$1</a></h2>')
+                    .replace(/^##\s+\[(.*?)\]\((.*?)\)/gm, '<h3><a href="$2" target="_blank">$1</a></h3>')
+                    .replace(/^###\s+\[(.*?)\]\((.*?)\)/gm, '<h4><a href="$2" target="_blank">$1</a></h4>')
+                    .replace(/^#\s+(.+)/gm, '<h2>$1</h2>')
+                    .replace(/^##\s+(.+)/gm, '<h3>$1</h3>')
+                    .replace(/^###\s+(.+)/gm, '<h4>$1</h4>')
                     .replace(/^\*\s+\[(.*?)\]\((.*?)\)/gm, '<ul><li><a href="$2" target="_blank">$1</a></li></ul>')
                     .replace(/^\*\s+(.+)/gm, '<ul><li>$1</li></ul>');
                 document.getElementById('sidebar-content').innerHTML = formattedText;
             })
-            .catch(error => console.log('Erro ao carregar sidebar:', error));
+            .catch(error => console.error('Erro ao carregar sidebar:', error));
     </script>
 </body>
 </html>
